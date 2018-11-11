@@ -1,6 +1,7 @@
-FROM haskell:8.0
+FROM haskell:8.4
 
-MAINTAINER James Gregory <james@jagregory.com>
+LABEL version="2.4"
+LABEL maintainer="Denys Vuika <denys.vuika@gmail.com>"
 
 # install latex packages
 RUN apt-get update -y \
@@ -16,7 +17,7 @@ RUN apt-get update -y \
 
 # will ease up the update process
 # updating this env variable will trigger the automatic build of the Docker image
-ENV PANDOC_VERSION "1.19.2.1"
+ENV PANDOC_VERSION "2.4"
 
 # install pandoc
 RUN cabal update && cabal install pandoc-${PANDOC_VERSION}
